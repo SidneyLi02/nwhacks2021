@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 import dotenv from 'dotenv'
 
+import userRoute from './components/user/userRoutes.js'
+
 dotenv.config()
 
 const { json, urlencoded } = express
@@ -27,7 +29,7 @@ app.use(passport.session())
 app.use(express.static('public'))
 
 export default function (db) {
-  console.log(db)
+  app.use('/auth', userRoute())
 
   app.use('*', (_req, res) => res.sendStatus(404))
   return app
