@@ -33,7 +33,6 @@ async function newPost (req, res) {
   }
 }
 
-
 async function getPosts (req, res) {
   const queryDate = new Date(req.body.date) ?? new Date()
 

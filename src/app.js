@@ -1,20 +1,22 @@
+import path from 'path'
 import express from 'express'
 import helmet from 'helmet'
 import passport from 'passport'
 import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 import config from '../config.js'
 import authCheck from './middleware/authCheck.js'
 import userRoute from './components/user/userRoute.js'
 import postRoute from './components/post/postRoute.js'
-import path from 'path'
 
 dotenv.config()
 
 const { json, urlencoded } = express
 const app = express()
+app.use(cors())
 app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(cookieParser())
