@@ -10,6 +10,7 @@ import SlideThree from './img/kek3.jpg'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button'
 
 import './Layout.css';
 
@@ -81,8 +82,9 @@ export default function Layout(props) {
                 </Container>
                 
                 <div className = "btnDisplay">
-                <button onClick = {() => hasClicked(true)}>Register</button>
-                <button onClick = {() => startTransfer(true)}>Proceed</button>
+                <Button onClick = {() => hasClicked(true)} variant="outline-primary">Register</Button>
+                <br></br>
+                <Button onClick = {() => startTransfer(true)} variant="outline-secondary">Secondary</Button>
                 </div>
 
 
