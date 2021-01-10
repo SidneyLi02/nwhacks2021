@@ -1,9 +1,11 @@
+import path from 'path'
 import express from 'express'
 import helmet from 'helmet'
 import passport from 'passport'
 import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 import config from '../config.js'
 import authCheck from './middleware/authCheck.js'
@@ -14,6 +16,7 @@ dotenv.config()
 
 const { json, urlencoded } = express
 const app = express()
+app.use(cors())
 app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(cookieParser())
@@ -25,10 +28,10 @@ app.use(cookieSession({
   httpOnly: true,
   secure: false
 }))
-app.use(helmet())
+app.use(helmet({ contentSecurityPolicy: false }))
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(express.static('public'))
+app.use(express.static(path.join(path.resolve(path.dirname('')), 'public')))
 
 export default function (db) {
   app.use('/auth', userRoute())
