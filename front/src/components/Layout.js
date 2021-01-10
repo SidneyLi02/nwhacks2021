@@ -43,10 +43,11 @@ export default function Layout(props) {
         return (
             <div>
                 <h1 className = "appTitle">The Goodness Repository</h1>
+                <p className = "appTitle">Connect with your emotions through reflections.</p>
                 <Container>
                     <Row>
-                        <Col></Col>
-                        <Col>
+                        <Col md={3}></Col>
+                        <Col md={6}>
                         
                         <Carousel>
                     <Carousel.Item>
@@ -72,7 +73,10 @@ export default function Layout(props) {
                     </Carousel.Item>
             </Carousel>
                         </Col>
-                        <Col></Col>
+                        <Col md={3}></Col>
+                    </Row>
+                    <Row>
+                        
                     </Row>
                 </Container>
                 
