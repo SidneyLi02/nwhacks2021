@@ -26,7 +26,7 @@ app.use(cookieSession({
   httpOnly: true,
   secure: false
 }))
-app.use(helmet())
+app.use(helmet({ contentSecurityPolicy: false }))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.static(path.join(path.resolve(path.dirname('')), 'public')))
