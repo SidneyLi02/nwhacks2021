@@ -1,8 +1,6 @@
 import React from 'react';
 import Main from './Main';
 import Auth from './Auth';
-import Navbar from 'react-bootstrap/Navbar';
-import Smile from './img/smile.png';
 import Carousel from 'react-bootstrap/Carousel'
 import SlideOne from './img/kek.jpg';
 import SlideTwo from './img/kek2.jpg';
@@ -44,8 +42,12 @@ export default function Layout(props) {
         return (
             <div>
                 <h1 className = "appTitle">The Goodness Repository</h1>
-                <p className = "appTitle">Connect with your emotions through reflections.</p>
-                <Container>
+                <div className = "btnDisplay">
+                <Button onClick = {() => hasClicked(true)} variant="outline-primary">Register</Button>
+                <Button onClick = {() => startTransfer(true)} variant="outline-secondary">Continue</Button>
+                </div>
+                <p className = "appSub">Connect with your emotions through reflections.</p>
+                <Container className = "fixBottom">
                     <Row>
                         <Col md={3}></Col>
                         <Col md={6}>
@@ -80,15 +82,7 @@ export default function Layout(props) {
                         
                     </Row>
                 </Container>
-                
-                <div className = "btnDisplay">
-                <Button onClick = {() => hasClicked(true)} variant="outline-primary">Register</Button>
-                <br></br>
-                <Button onClick = {() => startTransfer(true)} variant="outline-secondary">Secondary</Button>
-                </div>
-
-
-
+            
             </div>
         )
     }
