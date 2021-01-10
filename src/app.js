@@ -29,7 +29,7 @@ app.use(cookieSession({
 app.use(helmet())
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(path.resolve(path.dirname('')), 'public')))
 
 export default function (db) {
   app.use('/auth', userRoute())
