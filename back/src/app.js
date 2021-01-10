@@ -5,7 +5,10 @@ import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 import dotenv from 'dotenv'
 
-import userRoute from './components/user/userRoutes.js'
+import config from '../config.js'
+import authCheck from './middleware/authCheck.js'
+import userRoute from './components/user/userRoute.js'
+import postRoute from './components/post/postRoute.js'
 
 dotenv.config()
 
@@ -16,9 +19,8 @@ app.use(urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(cookieSession({
   name: 'session',
-  maxAge: 43_200_000, // 12h
+  maxAge: config.SESSION_DURATION,
   keys: [process.env.COOKIE_SESSION_SECRET_1, process.env.COOKIE_SESSION_SECRET_2],
-  domain: '',
   SameSite: 'none',
   httpOnly: true,
   secure: false
@@ -30,6 +32,7 @@ app.use(express.static('public'))
 
 export default function (db) {
   app.use('/auth', userRoute())
+  app.use('/post', authCheck, postRoute())
 
   app.use('*', (_req, res) => res.sendStatus(404))
   return app
