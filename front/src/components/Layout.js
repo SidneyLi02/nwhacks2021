@@ -10,10 +10,9 @@ export default function Layout(props) {
     const transferBool = props.transfer;
     const {startTransfer} = props;
 
-    console.log(props)
-
     // does not need change of state, prolly del
     const loggedInBool = props.loggedIn; 
+    const {hasLoggedIn} = props;
 
     const clickRegister = props.clickRegister;
     const {hasClicked} = props;
@@ -24,8 +23,9 @@ export default function Layout(props) {
             <Main />
         )
     } else if (clickRegister) {
+
         return (
-            <Auth />
+            <Auth loggedInBool = {loggedInBool} hasLoggedIn = {hasLoggedIn} />
         )
     } 
     else {
