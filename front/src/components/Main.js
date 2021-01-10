@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import imgOne from './img/card1.jpg';
 import imgTwo from './img/card2.jpg';
 import imgThree from './img/card3.jpg';
+import Form from 'react-bootstrap/Form';
 
 import './Main.css';
 
@@ -46,6 +47,21 @@ export default function Main() {
 
                     {/* empty space */}
                     <Col className = "kek" md={1} /> 
+                    <Col md={9}>
+
+                    <Form className = "centerSearch">
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>How are you feeling?</Form.Label>
+
+                            {/* pressing enter somehow takes you back to Layout.js render */}
+                            <Form.Control type="text" placeholder="I'm feeling..." />
+                            <Form.Text className="text-muted">
+                            We'll allow you to relive back your past memories.
+                            </Form.Text>
+                        </Form.Group>
+                    </Form>
+
+                    </Col>
                 </Row>
             </Container>
         )

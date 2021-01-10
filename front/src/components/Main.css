@@ -30,3 +30,11 @@
     background-repeat: no-repeat;
     background-position: center center;
 }
+
+.centerSearch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+}
