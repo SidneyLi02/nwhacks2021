@@ -1,0 +1,18 @@
+.carousel-inner { 
+    height: 75vh;
+} 
+  
+.item.active { 
+    height: 75vh;
+} 
+  
+.item img { 
+    object-fit: contain; 
+    height: 100%!important; 
+} 
+
+.btnDisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

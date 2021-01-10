@@ -79,3 +79,9 @@ body, html, .App, #root, .outer {
 .forgot-password a {
   color: #167bff;
 }
+
+.appTitle {
+  font-family: 'Homemade Apple', cursive;
+  text-align: center;
+  margin-top: 50px;
+}
