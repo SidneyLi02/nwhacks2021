@@ -31,7 +31,7 @@ export default function Layout(props) {
     else {
         return (
             <div>
-                <p>test</p>
+                <p>App Name</p>
                 <button onClick = {() => hasClicked(true)}>Register</button>
                 <button onClick = {() => startTransfer(true)}>Proceed</button>
             </div>
